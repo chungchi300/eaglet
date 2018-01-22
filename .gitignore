@@ -42,3 +42,4 @@ app
 .idea
 
 .env
+!.env/.gitkeep
