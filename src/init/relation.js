@@ -1,4 +1,4 @@
 //relation
-global.orm.models.Feedback.belongsTo(global.orm.models.User, {
+global.orm.Feedback.belongsTo(global.orm.User, {
   onDelete: 'cascade',
 });

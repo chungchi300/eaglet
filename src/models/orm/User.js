@@ -49,7 +49,7 @@ module.exports = (sequelize, Sequelize) => {
       defaultValue: false,
     },
   };
-  var SequelizeUser = sequelize.define('User', model, {
+  var SequelizeUser = sequelize.define('user', model, {
     validate: {
       phoneOrEmail() {
         if (!this.email && !this.phone) {

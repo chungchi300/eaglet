@@ -36,7 +36,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: false,
     },
   };
-  const sequelizeModel = sequelize.define('Otp', model);
+  const sequelizeModel = sequelize.define('otp', model);
 
   return sequelizeModel;
 };

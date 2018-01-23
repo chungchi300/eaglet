@@ -1,8 +1,8 @@
 var path = require('path');
 async function reloadDatabase() {
   console.log('reloading');
-  await global.orm.sync({ force: true });
-  // console.log(global.orm.models.Employee);
+  await global.sequelize.sync({ force: true });
+  // console.log(global.orm.Employee);
 
   process.exit(0);
 }

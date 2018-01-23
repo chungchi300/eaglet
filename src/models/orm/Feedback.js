@@ -5,5 +5,5 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING(255),
     },
   };
-  return sequelize.define('Feedback', model);
+  return sequelize.define('feedback', model);
 };

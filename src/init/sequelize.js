@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const path = require('path');
 const fs = require('fs');
+const _ = require('lodash');
 const instanceMethods = require(global.srcRoot +
   '/lib/sequenlizeClassMethod.js');
 
@@ -18,11 +19,17 @@ for (let model of child) {
   // console.log('the modal path', modelPath);
   if (fs.statSync(modelPath).isFile()) {
     let importedModel = sequelize.import(modelPath);
+
     for (let methodName of Object.keys(instanceMethods)) {
       importedModel[methodName] = instanceMethods[methodName];
     }
   }
 }
-global.orm = sequelize;
+let models = {};
+Object.keys(sequelize.models).map(modelName => {
+  models[_.upperFirst(modelName)] = sequelize.models[modelName];
+});
+global.sequelize = sequelize;
+global.orm = models;
 
 require('./relation');

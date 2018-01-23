@@ -4,7 +4,7 @@ const BearerStrategy = require('passport-http-bearer').Strategy;
 //get the user from token
 passport.use(
   new BearerStrategy(async function(token, done) {
-    let user = await global.orm.models.User.findOne({
+    let user = await global.orm.User.findOne({
       where: {
         token: token,
       },

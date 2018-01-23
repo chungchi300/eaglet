@@ -9,7 +9,7 @@ module.exports = class RestResourceCtrl {
       //
       // //
 
-      let resources = await global.orm.models[
+      let resources = await global.orm[
         getResourceName(ctx.request.url)
       ].findAll({
         include: [{ all: true }],
@@ -27,7 +27,7 @@ module.exports = class RestResourceCtrl {
       //
       // //
 
-      let resource = await global.orm.models[
+      let resource = await global.orm[
         getResourceName(ctx.request.url)
       ].findAll({
         include: [{ all: true }],
@@ -45,7 +45,7 @@ module.exports = class RestResourceCtrl {
     //
     // //
     console.log('create', ctx.request.body);
-    let resource = await global.orm.models[
+    let resource = await global.orm[
       getResourceName(ctx.request.url)
     ].create(ctx.request.body);
     ctx.body = resource.id;
@@ -54,7 +54,7 @@ module.exports = class RestResourceCtrl {
     try {
       //
       // //
-      let resource = await global.orm.models[
+      let resource = await global.orm[
         getResourceName(ctx.request.url)
       ].update(ctx.request.body, { where: { id: ctx.params.id } });
       ctx.body = { operation: 'done' };
@@ -65,7 +65,7 @@ module.exports = class RestResourceCtrl {
   async delete(ctx, next) {
     //
     // //
-    let resource = await global.orm.models[
+    let resource = await global.orm[
       getResourceName(ctx.request.url)
     ].destroy({
       where: {

@@ -30,7 +30,7 @@ module.exports = class MembershipCtrl {
 
     let { username } = ctx.request.body;
 
-    let otp = await global.orm.models.Otp.create({
+    let otp = await global.orm.Otp.create({
       username: username,
       code: num,
     });

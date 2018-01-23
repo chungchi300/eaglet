@@ -6,7 +6,7 @@ module.exports= async (ctx, next) => {
     //
     // //
 
-    let employees = await global.orm.models.Employee.findAll({
+    let employees = await global.orm.Employee.findAll({
       include: [{ all: true }],
     });
     employeesName = employees.map(

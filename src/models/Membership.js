@@ -4,7 +4,7 @@ module.exports = {
   async getUser(username, password) {
     //TODO must check verification
     //password optional
-    let user = await global.orm.models.User.findOne({
+    let user = await global.orm.User.findOne({
       where: {
         $or: {
           email: {
@@ -22,7 +22,7 @@ module.exports = {
   },
   async resetPassword(otp, newPassword) {
     console.log('the otp', otp);
-    let user = await global.orm.models.User.findOne({
+    let user = await global.orm.User.findOne({
       where: {
         $or: {
           email: {
@@ -42,7 +42,7 @@ module.exports = {
     await user.save();
   },
   async getOtp(email, phone, code) {
-    return await global.orm.models.Otp.findOne({
+    return await global.orm.Otp.findOne({
       where: {
         code: code,
         username: { $in: [email, phone] },
@@ -54,7 +54,7 @@ module.exports = {
     if (otp == null) {
       throw Error('otp not found');
     }
-    let user = await global.orm.models.User.create({
+    let user = await global.orm.User.create({
       name: name,
       phone: phone,
       email: email,
