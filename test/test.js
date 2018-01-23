@@ -12,11 +12,11 @@ beforeEach(() => {
 });
 //
 describe('index', () => {
-  test('should respond as expected', async () => {
+  test('should respond success message', async () => {
     const response = await request(app).get('/success');
     expect(response.status).toEqual(200);
     expect(response.type).toEqual('application/json');
-    expect(response.body).toEqual({ result: 'success' });
+    expect(response.body).toEqual({ result: 'success', author: 'jeffchung' });
   });
 });
 describe('exception handling', () => {

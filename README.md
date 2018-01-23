@@ -16,24 +16,35 @@
 3. 自帶会员系统 (可拆开)(Passport js)
 4. 邮件服务 (Sparkpost)
 5. 对象关系映射(ORM) (Sequelize)
-6. 多个配置
+6. 多个配置(/.env production.json,testing.json,development.json)
 7. koa-router
+
+## 技术堆栈
+1. Node js
+2. koa2
+3. Sequelize
+4. Mysql
 
 ## 开发模式
 
 文件修改后自动重启 Node.js 自动热重启服务
-
+```
+npm run start
+```
 ## 测试驱动开发模式
 
-Jest
-
+**Jest**
+```
 npm run test
+```
 
-## 生产模式
+## 线上模式
 
 pm2
+```
+npm run production
+```
 
-production
 
 ## 配置
 默认配置文件位于 src/config/default.js.
@@ -44,9 +55,9 @@ e.g
 
 .env/production.json 覆盖 src/config/default.js 配置
 
-## Thanks
-使用代碼於
+## 谢谢
+使用部分代碼和概念於
 
-17koa2
+[17koa2](https://github.com/17koa/koa2-startkit)
 
-koa2-server
+[koa2-server](https://github.com/zhongxia245/koa2-server)

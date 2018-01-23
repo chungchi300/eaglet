@@ -3,7 +3,7 @@ module.exports = async (ctx, next) => {
     //
     // //
 
-    ctx.body = { result: 'success' };
+    ctx.body = { result: 'success', author: 'jeffchung' };
   } catch (err) {
     console.log('e', err);
   }

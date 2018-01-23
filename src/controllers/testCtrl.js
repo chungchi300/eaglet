@@ -1,21 +1,6 @@
-module.exports= async (ctx, next) => {
-  let title = 'koa2 ';
+module.exports = async (ctx, next) => {
+  let author = 'jeffchung - the ninja,the student and the teacher';
+  let current = new Date();
 
-  let employeesName = '';
-  try {
-    //
-    // //
-
-    let employees = await global.orm.Employee.findAll({
-      include: [{ all: true }],
-    });
-    employeesName = employees.map(
-      employee => employee.name + ' from ' + employee.company.name
-    );
-    title += employeesName;
-
-    ctx.body = { nameConcated: title, employees };
-  } catch (err) {
-    console.log('e', err);
-  }
+  ctx.body = { title: author, current: current };
 };

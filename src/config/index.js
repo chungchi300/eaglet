@@ -9,5 +9,5 @@ console.log(envJsonPath);
 fs.ensureFileSync(envJsonPath);
 let envConfig = fs.readJsonSync(envJsonPath, { throws: false });
 var result = _.merge({}, defaultConfig, envConfig);
-console.log('result', result);
+
 module.exports = result;
