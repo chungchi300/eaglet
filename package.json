@@ -6,7 +6,7 @@
     "start": "$(npm bin)/nodemon src/app.js",
     "production":
       "NODE_ENV=production $(npm bin)/pm2 restart src/app.js --name 'safe-start-koa2'",
-    "reset": "node bin/resetDatabase.js&&npm run start ",
+    "reset": "node bin/resetDatabase.js",
     "test": "$(npm bin)/jest --watchAll --runInBand --useStderr",
     "testProd":
       "NODE_ENV=production  $(npm bin)/jest --watchAll --runInBand --useStderr"

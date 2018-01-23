@@ -1,7 +1,4 @@
 //relation
-global.orm.models.Employee.belongsTo(global.orm.models.Company, {
-  onDelete: 'cascade',
-});
-global.orm.models.Company.hasMany(global.orm.models.Employee, {
+global.orm.models.Feedback.belongsTo(global.orm.models.User, {
   onDelete: 'cascade',
 });
