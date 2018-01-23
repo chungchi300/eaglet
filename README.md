@@ -25,6 +25,11 @@
 3. Sequelize
 4. Mysql
 
+## 安装并运行
+1. git clone https://github.com/zhongxia245/koa2-server.git
+2. 更改 src/config/default.js (Mysql)
+3. npm i && npm run reset && npm start
+
 ## 开发模式
 
 文件修改后自动重启 Node.js 自动热重启服务
