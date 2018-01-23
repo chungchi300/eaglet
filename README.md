@@ -16,7 +16,7 @@
 3. 自帶会员系统 (可拆开)(Passport js)
 4. 邮件服务 (Sparkpost)
 5. 对象关系映射(ORM) (Sequelize)
-6. 多个配置(/.env production.json,testing.json,development.json)
+6. 多个配置(/.env production.json,test.json,development.json)
 7. koa-router
 
 ## 技术堆栈
@@ -26,10 +26,12 @@
 4. Mysql
 
 ## 安装并运行
+```
 1. git clone git@github.com:chungchi300/safe-start-koa2.git
-2. 更改 src/config/default.js (Mysql)
+//更改 database
+2. src/config/default.js (Mysql)
 3. npm i && npm run reset && npm start
-
+```
 ## 开发模式
 
 文件修改后自动重启 Node.js 自动热重启服务
@@ -50,8 +52,7 @@ pm2
 npm run production
 ```
 
-
-## 配置
+## 配置&&部署线上
 默认配置文件位于 src/config/default.js.
 
 .env 配置会覆盖(override) 默认配置.
