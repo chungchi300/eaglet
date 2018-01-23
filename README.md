@@ -26,7 +26,7 @@
 4. Mysql
 
 ## 安装并运行
-1. git clone https://github.com/zhongxia245/koa2-server.git
+1. git clone git@github.com:chungchi300/safe-start-koa2.git
 2. 更改 src/config/default.js (Mysql)
 3. npm i && npm run reset && npm start
 
