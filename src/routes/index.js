@@ -8,9 +8,8 @@ const exceptionCtrl = require('../controllers/exceptionCtrl');
 
 const MembershipCtrl = require('../controllers/MembershipCtrl');
 const router = Router();
-let userCtrl = new RestCtrl();
-let companyCtrl = new RestCtrl();
-let feedback = new RestCtrl();
+
+let restCtrl = new RestCtrl();
 router.get('/', indexCtrl);
 router.get('/test', testCtrl);
 function resource(router, resourceName, ctrl) {
@@ -21,8 +20,6 @@ function resource(router, resourceName, ctrl) {
     .put(`/${resourceName}/:id`, ctrl.update)
     .delete(`/${resourceName}/:id`, ctrl.delete);
 }
-resource(router, 'employee', userCtrl);
-resource(router, 'company', userCtrl);
 
 router.get('/success', successCtrl);
 let membershipCtrl = new MembershipCtrl();
@@ -40,6 +37,6 @@ router.get(
 );
 
 //need auth route middle
-resource(router, 'feedback', userCtrl);
+resource(router, 'feedback', restCtrl);
 
 module.exports = router;
