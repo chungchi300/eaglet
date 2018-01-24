@@ -47,6 +47,7 @@ npm run start
 npm run test
 ```
 <iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5NTMwMA==' frameborder=0 'allowfullscreen'></iframe>
+
 ## 线上模式
 
 pm2
