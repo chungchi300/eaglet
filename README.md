@@ -38,7 +38,7 @@
 ```
 npm run start
 ```
-<iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5MDg1Ng==' frameborder=0 'allowfullscreen'></iframe>
+[在优酷上观看](http://v.youku.com/v_show/id_XMzM0NDQ5MDg1Ng==.html?spm=a2hzp.8253869.0.0)
 
 ## 测试驱动开发模式
 
@@ -46,7 +46,7 @@ npm run start
 ```
 npm run test
 ```
-<iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5NTMwMA==' frameborder=0 'allowfullscreen'></iframe>
+[在优酷上观看](http://v.youku.com/v_show/id_XMzM0NDQ5NTMwMA==.html?spm=a2hzp.8253869.0.0)
 
 ## 线上模式
 
@@ -54,7 +54,9 @@ pm2
 ```
 npm run production
 ```
-<iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5ODU3Ng==' frameborder=0 'allowfullscreen'></iframe>
+
+[在优酷上观看](http://v.youku.com/v_show/id_XMzM0NDQ5ODU3Ng==.html?spm=a2hzp.8253869.0.0)
+
 
 ## 配置&&部署线上
 默认配置文件位于 src/config/default.js.
