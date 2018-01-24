@@ -38,6 +38,7 @@
 ```
 npm run start
 ```
+
 <iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5MDg1Ng==' frameborder=0 'allowfullscreen'></iframe>
 
 ## 测试驱动开发模式
@@ -46,6 +47,7 @@ npm run start
 ```
 npm run test
 ```
+
 <iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5NTMwMA==' frameborder=0 'allowfullscreen'></iframe>
 
 ## 线上模式
@@ -54,6 +56,7 @@ pm2
 ```
 npm run production
 ```
+
 <iframe height=498 width=510 src='http://player.youku.com/embed/XMzM0NDQ5ODU3Ng==' frameborder=0 'allowfullscreen'></iframe>
 
 ## 配置&&部署线上
