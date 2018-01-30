@@ -27,7 +27,7 @@
 
 ## 安装并运行
 ```
-1. git clone git@github.com:chungchi300/safe-start-koa2.git
+1. git clone git@github.com:chungchi300/koa2-safe-start.git
 //更改 database
 2. src/config/default.js  (default sqlite but suggest mysql in production)
 3. npm i && npm run reset && npm start
