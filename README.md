@@ -38,6 +38,10 @@
 * http://localhost:3000
 * http://localhost:3000/feedback
 
+## 测试服务器
+* http://45.76.76.16:3000/
+* http://45.76.76.16:3000/feedback
+
 ## 开发模式
 
 文件修改后自动重启 Node.js 自动热重启服务
