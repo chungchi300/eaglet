@@ -2,8 +2,13 @@ var path = require('path');
 async function reloadDatabase() {
   console.log('reloading');
   await global.sequelize.sync({ force: true });
-  // console.log(global.orm.Employee);
 
+  await global.orm.Feedback.create({
+    content: 'safe start koa2 is easy to use',
+  });
+  await global.orm.Feedback.create({
+    content: 'safe start koa2 help me finish my work eariler',
+  });
   process.exit(0);
 }
 try {

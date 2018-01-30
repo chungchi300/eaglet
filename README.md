@@ -23,15 +23,21 @@
 1. Node js
 2. koa2
 3. Sequelize
-4. Mysql
+4. Mysql/SQlite
 
 ## 安装并运行
 ```
 1. git clone git@github.com:chungchi300/safe-start-koa2.git
 //更改 database
-2. src/config/default.js (Mysql)
+2. src/config/default.js  (default sqlite but suggest mysql in production)
 3. npm i && npm run reset && npm start
 ```
+
+访问
+
+* http://localhost:3000
+* http://localhost:3000/feedback
+
 ## 开发模式
 
 文件修改后自动重启 Node.js 自动热重启服务

@@ -3,6 +3,7 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
+
 module.exports = {
   database: {
     // port: 3000,
@@ -13,12 +14,15 @@ module.exports = {
     },
     extra: {
       host: 'host name',
-      dialect: 'mysql',
+      //default sqlite but suggest mysql in production
+      dialect: 'sqlite',
       pool: {
-        max: 1,
+        max: 5,
         min: 0,
+        acquire: 30000,
         idle: 10000,
       },
+      storage: global.srcRoot + '/../database.sqlite',
     },
   },
   mail: {

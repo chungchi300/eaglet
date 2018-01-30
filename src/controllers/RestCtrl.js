@@ -1,7 +1,8 @@
+const _ = require('lodash');
 //annonymous object!!(not class) with multiple
 function getResourceName(url) {
   const res = /^\/(\w+)/.exec(url);
-  return res[1];
+  return _.upperFirst(res[1]);
 }
 module.exports = class RestResourceCtrl {
   async list(ctx, next) {
@@ -45,9 +46,9 @@ module.exports = class RestResourceCtrl {
     //
     // //
     console.log('create', ctx.request.body);
-    let resource = await global.orm[
-      getResourceName(ctx.request.url)
-    ].create(ctx.request.body);
+    let resource = await global.orm[getResourceName(ctx.request.url)].create(
+      ctx.request.body
+    );
     ctx.body = resource.id;
   }
   async update(ctx, next) {
@@ -65,9 +66,7 @@ module.exports = class RestResourceCtrl {
   async delete(ctx, next) {
     //
     // //
-    let resource = await global.orm[
-      getResourceName(ctx.request.url)
-    ].destroy({
+    let resource = await global.orm[getResourceName(ctx.request.url)].destroy({
       where: {
         id: ctx.params.id,
       },

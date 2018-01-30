@@ -9,11 +9,12 @@ const logger = require('koa-logger');
 const koaStatic = require('koa-static-plus');
 const koaOnError = require('koa-onerror');
 const cors = require('@koa/cors');
-const config = require('./config');
+
 // const session = require('koa-session');
 // console.log('the dirname', __dirname);
 // global.appRoot = '/home/jeffchung/work/source/web/js/personal/koa2-startkit';
 global.srcRoot = __dirname;
+const config = require('./config');
 global.config = config;
 
 //

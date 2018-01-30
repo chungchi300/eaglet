@@ -42,3 +42,5 @@ app
 .idea
 
 .env
+
+database.sqlite
