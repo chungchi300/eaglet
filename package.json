@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "author": "jeffchung",
   "scripts": {
-    "start": "$(npm bin)/nodemon src/app.js",
+    "start": "npx --no-install nodemon src/app.js ",
     "production":
-      "NODE_ENV=production $(npm bin)/pm2 start src/app.js --name 'koa2-safe-start'",
+      "NODE_ENV=production npx --no-install pm2 start src/app.js --name 'koa2-safe-start'",
     "reset": "node bin/resetDatabase.js",
-    "test": "$(npm bin)/jest --watchAll --runInBand --useStderr",
+    "test": "npx --no-install  jest --watchAll --runInBand --useStderr",
     "testProd":
-      "NODE_ENV=production  $(npm bin)/jest --watchAll --runInBand --useStderr"
+      "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
   },
   "jest": {
     "testEnvironment": "node"
