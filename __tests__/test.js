@@ -44,7 +44,7 @@ async function register(username, password) {
       email: username,
       phone: '',
       code: otp.code,
-      name: 'jeffchung',
+      name: 'jeffchung杰夫',
       password: password,
     });
   return await global.orm.User.last();
@@ -84,7 +84,7 @@ describe('membership', () => {
         email: username,
         phone: '',
         code: otp.code,
-        name: 'jeffchung',
+        name: 'jeffchung杰夫',
         password: '123456',
       });
     expect(response.status).toEqual(200);
@@ -103,7 +103,7 @@ describe('membership', () => {
         email: '',
         phone: username,
         code: otp.code,
-        name: 'jeffchung',
+        name: 'jeffchung杰夫',
         password: '123456',
       });
     expect(response.status).toEqual(200);

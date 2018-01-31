@@ -23,6 +23,11 @@ module.exports = {
         idle: 10000,
       },
       storage: global.srcRoot + '/../database.sqlite',
+      define: {
+        charset: 'utf8',
+        collate: 'utf8_general_ci',
+        timestamps: true,
+      },
     },
   },
   mail: {
