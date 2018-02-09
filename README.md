@@ -44,28 +44,33 @@
 
 ## 开发模式
 
-文件修改后自动重启 Node.js 自动热重启服务
+文件修改后nodemon**立即自动重启** Node.js 服务
 ```
 npm run start
 ```
-[在优酷上观看](http://v.youku.com/v_show/id_XMzM0NDQ5MDg1Ng==.html?spm=a2hzp.8253869.0.0)
+
+[![在优酷上观看](https://t4.ftcdn.net/jpg/01/12/56/73/240_F_112567399_fVHoy5kIkNXdDnwCSpaSkDC3wmH9NVCs.jpg)](http://v.youku.com/v_show/id_XMzM0NDQ5MDg1Ng==.html?spm=a2hzp.8253869.0.0)
 
 ## 测试驱动开发模式
 
-**Jest**
+文件修改后Jest**立即自动重新运行**所有测试
+
 ```
 npm run test
 ```
-[在优酷上观看](http://v.youku.com/v_show/id_XMzM0NDQ5NTMwMA==.html?spm=a2hzp.8253869.0.0)
+
+[![在优酷上观看](https://t4.ftcdn.net/jpg/01/12/56/73/240_F_112567399_fVHoy5kIkNXdDnwCSpaSkDC3wmH9NVCs.jpg)](http://v.youku.com/v_show/id_XMzM0NDQ5NTMwMA==.html?spm=a2hzp.8253869.0.0)
 
 ## 线上模式
 
-pm2
+使用pm2是node进程管理器,如果node进程崩溃**立即自动重启**进程
 ```
 npm run production
 ```
 
-[在优酷上观看](http://v.youku.com/v_show/id_XMzM0NDQ5ODU3Ng==.html?spm=a2hzp.8253869.0.0)
+
+[![在优酷上观看](https://t4.ftcdn.net/jpg/01/12/56/73/240_F_112567399_fVHoy5kIkNXdDnwCSpaSkDC3wmH9NVCs.jpg)](http://v.youku.com/v_show/id_XMzM0NDQ5ODU3Ng==.html?spm=a2hzp.8253869.0.0)
+
 
 
 ## 配置&&部署线上
