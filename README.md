@@ -82,7 +82,8 @@ e.g
 
 .env/production.json 覆盖 src/config/default.js 配置
 
-3000 port to 80
+## 线上3000 port转80
+
 https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js-with-port-80-ubuntu-linode
 
 
