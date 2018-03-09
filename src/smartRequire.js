@@ -1,4 +1,15 @@
+/*
+  Smart require is basically a root require but you
+  can do dependency injection here if u want
+
+*/
 global.smartRequire = function(name) {
-  //do dependency injection here if u want
+  if (name == 'mail') {
+    if (process.env.NODE_ENV == 'test') {
+      return smartRequire('lib/mail/default');
+    } else {
+      return smartRequire('lib/mail/sparkpost');
+    }
+  }
   return require(__dirname + '/' + name);
 };
