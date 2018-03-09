@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize');
 const validator = require('validator');
-const instanceMethods = require(global.srcRoot +
-  '/lib/sequenlizeClassMethod.js');
+const instanceMethods = smartRequire('lib/sequenlizeClassMethod.js');
 
 module.exports = (sequelize, Sequelize) => {
   const model = {

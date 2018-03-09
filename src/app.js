@@ -9,12 +9,12 @@ const logger = require('koa-logger');
 const koaStatic = require('koa-static-plus');
 const koaOnError = require('koa-onerror');
 const cors = require('@koa/cors');
-
+require('./smartRequire');
 // const session = require('koa-session');
 // console.log('the dirname', __dirname);
 // global.appRoot = '/home/jeffchung/work/source/web/js/personal/koa2-startkit';
 global.srcRoot = __dirname;
-const config = require('./config');
+const config = smartRequire('config');
 global.config = config;
 
 //
@@ -27,13 +27,13 @@ const app = new Koa();
 
 const bodyparser = Bodyparser();
 //create sequelize object and load sequelize models in global scope
-require('./init/sequelize.js');
+smartRequire('init/sequelize.js');
 
 // middlewares
 app.use(cors());
 app.use(convert(bodyparser));
-require('./init/auth.js');
-require('./init/mail.js');
+smartRequire('init/auth.js');
+smartRequire('init/mail.js');
 app.use(convert(json()));
 app.use(convert(logger()));
 
@@ -82,10 +82,10 @@ app.use(async (ctx, next) => {
 
 // response router
 app.use(async (ctx, next) => {
-  await require('./routes').routes()(ctx, next);
+  await smartRequire('routes').routes()(ctx, next);
 });
 app.use(async (ctx, next) => {
-  await require('./routes').allowedMethods();
+  await smartRequire('routes').allowedMethods();
 });
 // database
 app.use(async (ctx, next) => {

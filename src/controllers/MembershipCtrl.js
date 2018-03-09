@@ -1,5 +1,5 @@
 const validator = require('validator');
-const Membership = require(global.srcRoot + '/models/Membership.js');
+const Membership = smartRequire('models/Membership.js');
 
 module.exports = class MembershipCtrl {
   async login(ctx, next) {

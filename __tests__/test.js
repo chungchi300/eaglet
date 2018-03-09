@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = require('../src/app.js');
-const Membership = require(global.srcRoot + '/models/Membership.js');
+const Membership = smartRequire('models/Membership.js');
 afterEach(() => {
   app.close();
 });

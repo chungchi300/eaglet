@@ -2,8 +2,7 @@ const Sequelize = require('sequelize');
 const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
-const instanceMethods = require(global.srcRoot +
-  '/lib/sequenlizeClassMethod.js');
+const instanceMethods = smartRequire('lib/sequenlizeClassMethod.js');
 
 var sequelize = new Sequelize(
   global.config.database.connection.database,
