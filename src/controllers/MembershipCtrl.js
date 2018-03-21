@@ -1,6 +1,7 @@
 const validator = require('validator');
-const Membership = smartRequire('models/Membership.js');
+const Membership = smartRequire('services/Membership.js');
 const mail = smartRequire('mail');
+const orm = smartRequire('orm');
 module.exports = class MembershipCtrl {
   async login(ctx, next) {
     let { username, password } = ctx.request.body;
@@ -30,7 +31,7 @@ module.exports = class MembershipCtrl {
 
     let { username } = ctx.request.body;
 
-    let otp = await global.orm.Otp.create({
+    let otp = await orm.Otp.create({
       username: username,
       code: num,
     });

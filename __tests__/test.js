@@ -1,14 +1,15 @@
 const request = require('supertest');
 const fs = require('fs');
 const path = require('path');
-
 const app = require('../src/app.js');
-const Membership = smartRequire('models/Membership.js');
+const sequelize = smartRequire('sequelize');
+const orm = smartRequire('orm');
+
 afterEach(() => {
   app.close();
 });
 beforeEach(() => {
-  return global.sequelize.sync({ force: true });
+  return sequelize.sync({ force: true });
 });
 //
 describe('index', () => {
@@ -32,11 +33,11 @@ async function createOtp(username) {
     .post('/membership/otp')
     .type('form')
     .send({ username: username });
-  return await global.orm.Otp.last();
+  return await orm.Otp.last();
 }
 async function register(username, password) {
   let otp = await createOtp(username);
-  let previousUser = await global.orm.User.count();
+  let previousUser = await orm.User.count();
   await request(app)
     .post('/membership/register')
     .type('form')
@@ -47,36 +48,36 @@ async function register(username, password) {
       name: 'jeffchung杰夫',
       password: password,
     });
-  return await global.orm.User.last();
+  return await orm.User.last();
 }
 describe('membership', () => {
   var testingEmail = 'chungchi300@gmail.com';
   var testingPhone = '67348649';
   test('otp success email', async () => {
-    let previousOtp = await global.orm.Otp.count();
+    let previousOtp = await orm.Otp.count();
     const response = await request(app)
       .post('/membership/otp')
       .type('form')
       .send({ username: testingEmail });
     expect(response.status).toEqual(200);
     expect(response.type).toEqual('application/json');
-    expect((await global.orm.Otp.count()) - previousOtp).toBe(1);
+    expect((await orm.Otp.count()) - previousOtp).toBe(1);
   });
   test('otp success phone', async () => {
-    let previousOtp = await global.orm.Otp.count();
+    let previousOtp = await orm.Otp.count();
     const response = await request(app)
       .post('/membership/otp')
       .type('form')
       .send({ username: testingPhone });
     expect(response.status).toEqual(200);
     expect(response.type).toEqual('application/json');
-    expect((await global.orm.Otp.count()) - previousOtp).toBe(1);
+    expect((await orm.Otp.count()) - previousOtp).toBe(1);
   });
 
   test('register success using email', async () => {
     let username = testingEmail;
     let otp = await createOtp(username);
-    let previousUser = await global.orm.User.count();
+    let previousUser = await orm.User.count();
     const response = await request(app)
       .post('/membership/register')
       .type('form')
@@ -89,13 +90,13 @@ describe('membership', () => {
       });
     expect(response.status).toEqual(200);
     expect(response.type).toEqual('application/json');
-    let currentUserNo = await global.orm.User.count();
+    let currentUserNo = await orm.User.count();
     expect(currentUserNo - previousUser).toBe(1);
   });
   test('register success using phone', async () => {
     let username = testingPhone;
     let otp = await createOtp(username);
-    let previousUser = await global.orm.User.count();
+    let previousUser = await orm.User.count();
     const response = await request(app)
       .post('/membership/register')
       .type('form')
@@ -107,7 +108,7 @@ describe('membership', () => {
         password: '123456',
       });
     expect(response.status).toEqual(200);
-    let currentUserNo = await global.orm.User.count();
+    let currentUserNo = await orm.User.count();
     expect(currentUserNo - previousUser).toBe(1);
   });
 
@@ -167,7 +168,7 @@ describe('membership', () => {
         code: otp.code,
       });
     expect(response.status).toEqual(200);
-    let user = await global.orm.User.last();
+    let user = await orm.User.last();
     expect(user.password).toEqual(newPassword);
   });
 });

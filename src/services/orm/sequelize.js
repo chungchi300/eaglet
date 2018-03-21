@@ -11,7 +11,7 @@ var sequelize = new Sequelize(
   config.database.extra
 );
 
-let modelsPath = global.srcRoot + '/models/orm';
+let modelsPath = smartRequire('ormModelPath');
 const child = fs.readdirSync(modelsPath);
 for (let model of child) {
   let modelPath = path.resolve(modelsPath, model);
@@ -28,7 +28,9 @@ let models = {};
 Object.keys(sequelize.models).map(modelName => {
   models[_.upperFirst(modelName)] = sequelize.models[modelName];
 });
-global.sequelize = sequelize;
-global.orm = models;
-
-require('./relation');
+module.exports = {
+  orm: models,
+  sequelize: sequelize,
+};
+//
+// require('./relation');

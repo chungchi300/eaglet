@@ -1,11 +1,12 @@
 const uuid = require('uuid/v1');
 const validator = require('validator');
 const mail = smartRequire('mail');
+const orm = smartRequire('orm');
 module.exports = {
   async getUser(username, password) {
     //TODO must check verification
     //password optional
-    let user = await global.orm.User.findOne({
+    let user = await orm.User.findOne({
       where: {
         $or: {
           email: {
@@ -23,7 +24,7 @@ module.exports = {
   },
   async resetPassword(otp, newPassword) {
     console.log('the otp', otp);
-    let user = await global.orm.User.findOne({
+    let user = await orm.User.findOne({
       where: {
         $or: {
           email: {
@@ -43,7 +44,7 @@ module.exports = {
     await user.save();
   },
   async getOtp(email, phone, code) {
-    return await global.orm.Otp.findOne({
+    return await orm.Otp.findOne({
       where: {
         code: code,
         username: { $in: [email, phone] },
@@ -55,7 +56,7 @@ module.exports = {
     if (otp == null) {
       throw Error('otp not found');
     }
-    let user = await global.orm.User.create({
+    let user = await orm.User.create({
       name: name,
       phone: phone,
       email: email,

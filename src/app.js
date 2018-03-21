@@ -27,7 +27,7 @@ const app = new Koa();
 
 const bodyparser = Bodyparser();
 //create sequelize object and load sequelize models in global scope
-smartRequire('init/sequelize.js');
+smartRequire('services/orm/sequelize.js');
 
 // middlewares
 app.use(cors());

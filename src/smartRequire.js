@@ -14,5 +14,14 @@ global.smartRequire = function(name) {
   if (name == 'auth') {
     return smartRequire('services/auth');
   }
+  if (name == 'ormModelPath') {
+    return __dirname + '/services/orm/models';
+  }
+  if (name == 'orm') {
+    return smartRequire('services/orm/sequelize').orm;
+  }
+  if (name == 'sequelize') {
+    return smartRequire('services/orm/sequelize').sequelize;
+  }
   return require(__dirname + '/' + name);
 };
