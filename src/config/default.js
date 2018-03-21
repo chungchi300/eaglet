@@ -3,7 +3,7 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-console.log('config required');
+
 module.exports = {
   database: {
     // port: 3000,

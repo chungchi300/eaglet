@@ -2,6 +2,7 @@ const request = require('supertest');
 const fs = require('fs');
 const path = require('path');
 const app = require('../src/app.js');
+//all using same config and sequelize sinced cached
 const sequelize = smartRequire('sequelize');
 const orm = smartRequire('orm');
 
@@ -125,7 +126,6 @@ describe('membership', () => {
       });
     expect(response.status).toEqual(200);
     expect(response.body.token.length > 0).toBe(true);
-    console.log('the length', response.body.token.length);
   });
   test('me with token', async () => {
     let email = testingEmail;

@@ -17,6 +17,12 @@ global.smartRequire = function(name) {
   if (name == 'ormModelPath') {
     return __dirname + '/services/orm/models';
   }
+  //find method to avoid orm ,sequelize,config load more then  once
+  /*
+  Node js already cached and only load once
+  http://www.infoq.com/cn/articles/nodejs-module-mechanism
+  */
+
   if (name == 'orm') {
     return smartRequire('services/orm/sequelize').orm;
   }

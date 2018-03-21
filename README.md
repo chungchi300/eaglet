@@ -1,19 +1,24 @@
-最简單直接的 Koa2 的脚手架 - **koa2-safe-start**
+最简单直接的 Koa2 的脚手架 - **koa2-safe-start**
+
+## 定位
+*　koa 2 入门至中级䦕发者
+*　1-5 位䦕发者
+*　没有魔法(易用易写易看易学的车子结构)
 
 ## 哲学
 
 **我不想知道你的哲学，但我想立即开始并完成工作**
 
 * 迅速开发　-　自动热重启服务 + 测试驱动开发模式 + 重置数据库(by cli)
-* 生产就绪　-　有node 和 npm 馬上可以部署,不用安裝任何东西
-* 從眾 - 80%人会做的设计决定(design decision)和80%人会使用的库(library)
-* 结构简單　-　routes + MVC + 中间件(Middleware)
-* 没有魔法 - 可由app.js 開始 , 25 分钟读懂的代码
+* 生产就绪　-　有node 和 npm 马上可以部署,不用安装任何东西
+* 从众 - 80%人会做的设计决定(design decision)和80%人会使用的库(library)
+* 结构简单　-　routes + MVC + 中间件(Middleware)
+* 没有魔法 - 可由app.js 开始 , 25 分钟读懂的代码
 
 ## 特别之处
 1. 没有babel配置(Node 9)
 2. Nodemon 自动热重启服务
-3. 自帶会员系统 (可选)(Passport js)
+3. 自带会员系统 (可选)(Passport js)
 4. 邮件服务 (Sparkpost)
 5. 对象关系映射(ORM) (Sequelize)
 6. 多个配置(/.env production.json,test.json,development.json)
@@ -88,7 +93,7 @@ https://stackoverflow.com/questions/16573668/best-practices-when-running-node-js
 
 
 ## 谢谢
-使用部分代碼和概念於
+使用部分代码和概念于
 
 [17koa2](https://github.com/17koa/koa2-startkit)
 

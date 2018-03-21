@@ -1,12 +1,16 @@
 var path = require('path');
+require('../src/smartRequire');
+const sequelize = smartRequire('sequelize');
+const orm = smartRequire('orm');
+
 async function reloadDatabase() {
   console.log('reloading');
-  await global.sequelize.sync({ force: true });
+  await sequelize.sync({ force: true });
 
-  await global.orm.Feedback.create({
+  await orm.Feedback.create({
     content: 'safe start koa2 is easy to use',
   });
-  await global.orm.Feedback.create({
+  await orm.Feedback.create({
     content: 'safe start koa2 help me finish my work eariler',
   });
   process.exit(0);
@@ -17,10 +21,7 @@ try {
   // var config = require(path.join(__dirname, '../src/config/default.js'));
 
   //
-  global.config = require(global.srcRoot + '/config');
 
-  //
-  require(path.join(__dirname, '../src/init/sequelize.js'));
   reloadDatabase().then(res => console.log('reload done'));
 } catch (err) {
   throw new Error(err.message);

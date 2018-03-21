@@ -33,4 +33,4 @@ module.exports = {
   sequelize: sequelize,
 };
 //
-// require('./relation');
+require('./relation');

@@ -1,10 +1,11 @@
+const config = smartRequire('config');
 module.exports = async function({ to, cc, bcc, subject, html }) {
   const SparkPost = require('sparkpost');
-  const client = new SparkPost(global.config.mail.sparkpost.api);
+  const client = new SparkPost(config.mail.sparkpost.api);
   await client.transmissions.send({
-    options: global.config.mail.sparkpost.options,
+    options: config.mail.sparkpost.options,
     content: {
-      from: global.config.mail.from,
+      from: config.mail.from,
       subject: subject,
       html: html,
     },
