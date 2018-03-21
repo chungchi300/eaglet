@@ -13,7 +13,7 @@
 ## 特别之处
 1. 没有babel配置(Node 9)
 2. Nodemon 自动热重启服务
-3. 自帶会员系统 (可拆开)(Passport js)
+3. 自帶会员系统 (可选)(Passport js)
 4. 邮件服务 (Sparkpost)
 5. 对象关系映射(ORM) (Sequelize)
 6. 多个配置(/.env production.json,test.json,development.json)

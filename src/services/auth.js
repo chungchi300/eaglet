@@ -17,6 +17,7 @@ passport.use(
     }
   })
 );
+module.exports = passport;
 // const LocalStrategy = require('passport-local').Strategy;
 // passport.use(
 //   //the username

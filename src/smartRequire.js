@@ -11,5 +11,8 @@ global.smartRequire = function(name) {
       return smartRequire('lib/mail/sparkpost');
     }
   }
+  if (name == 'auth') {
+    return smartRequire('services/auth');
+  }
   return require(__dirname + '/' + name);
 };

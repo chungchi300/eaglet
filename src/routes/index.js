@@ -3,6 +3,7 @@ const indexCtrl = smartRequire('controllers/indexCtrl');
 const RestCtrl = smartRequire('controllers/RestCtrl');
 const testCtrl = smartRequire('controllers/testCtrl');
 
+const passport = smartRequire('auth');
 const successCtrl = smartRequire('controllers/successCtrl');
 const exceptionCtrl = smartRequire('controllers/exceptionCtrl');
 
@@ -28,6 +29,7 @@ router.post('/membership/login', membershipCtrl.login);
 router.post('/membership/resetPassword', membershipCtrl.resetPassword);
 router.post('/membership/otp', membershipCtrl.otp);
 router.get('/testError', exceptionCtrl);
+
 router.get(
   '/membership/me',
   passport.authenticate('bearer', { session: false }),

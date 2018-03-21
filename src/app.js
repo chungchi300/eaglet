@@ -9,6 +9,7 @@ const logger = require('koa-logger');
 const koaStatic = require('koa-static-plus');
 const koaOnError = require('koa-onerror');
 const cors = require('@koa/cors');
+const passport = require('koa-passport');
 require('./smartRequire');
 // const session = require('koa-session');
 // console.log('the dirname', __dirname);
@@ -32,15 +33,12 @@ smartRequire('init/sequelize.js');
 // middlewares
 app.use(cors());
 app.use(convert(bodyparser));
-smartRequire('init/auth.js');
 app.use(convert(json()));
 app.use(convert(logger()));
 
-const passport = require('koa-passport');
 app.use(passport.initialize());
 // app.use(passport.session());
 //to let route use the passport object
-global.passport = passport;
 // static
 app.use(
   convert(
