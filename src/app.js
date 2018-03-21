@@ -16,7 +16,6 @@ require('./smartRequire');
 // global.appRoot = '/home/jeffchung/work/source/web/js/personal/koa2-startkit';
 global.srcRoot = __dirname;
 const config = smartRequire('config');
-global.config = config;
 
 //
 const app = new Koa();

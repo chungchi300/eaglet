@@ -3,12 +3,12 @@ const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
 const instanceMethods = smartRequire('lib/sequenlizeClassMethod.js');
-
+const config = smartRequire('config');
 var sequelize = new Sequelize(
-  global.config.database.connection.database,
-  global.config.database.connection.username,
-  global.config.database.connection.password,
-  global.config.database.extra
+  config.database.connection.database,
+  config.database.connection.username,
+  config.database.connection.password,
+  config.database.extra
 );
 
 let modelsPath = global.srcRoot + '/models/orm';
