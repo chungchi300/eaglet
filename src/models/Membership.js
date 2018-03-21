@@ -1,5 +1,6 @@
 const uuid = require('uuid/v1');
 const validator = require('validator');
+const mail = smartRequire('mail');
 module.exports = {
   async getUser(username, password) {
     //TODO must check verification
@@ -63,7 +64,7 @@ module.exports = {
     });
     if (validator.isEmail('' + otp.username)) {
       user.emailVerified = true;
-      await global.mail({
+      await mail({
         to: email,
         subject: 'Welcome',
         html: `<html><body>Welcome ${user.name}</body></html>`,

@@ -1,6 +1,6 @@
 const validator = require('validator');
 const Membership = smartRequire('models/Membership.js');
-
+const mail = smartRequire('mail');
 module.exports = class MembershipCtrl {
   async login(ctx, next) {
     let { username, password } = ctx.request.body;
@@ -36,7 +36,7 @@ module.exports = class MembershipCtrl {
     });
 
     if (validator.isEmail('' + username)) {
-      await global.mail({
+      await mail({
         to: username,
         subject: 'OTP',
         html: `<html><body>Your otp ${otp.code}</body></html>`,

@@ -33,7 +33,6 @@ smartRequire('init/sequelize.js');
 app.use(cors());
 app.use(convert(bodyparser));
 smartRequire('init/auth.js');
-smartRequire('init/mail.js');
 app.use(convert(json()));
 app.use(convert(logger()));
 
