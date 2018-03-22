@@ -1,4 +1,5 @@
-const http = require('http');
+require('./smartRequire');
+
 const Koa = require('koa');
 const path = require('path');
 const views = require('koa-views');
@@ -10,7 +11,6 @@ const koaStatic = require('koa-static-plus');
 const koaOnError = require('koa-onerror');
 const cors = require('@koa/cors');
 const passport = require('koa-passport');
-require('./smartRequire');
 
 const config = smartRequire('config');
 const httpLogger = smartRequire('middleware/httpLogger');
@@ -20,7 +20,13 @@ const presentError = smartRequire('middleware/presentError');
 const app = new Koa();
 
 const bodyparser = Bodyparser();
-
+app.use(
+  convert(
+    koaStatic(path.join(__dirname, '../public'), {
+      pathPrefix: '',
+    })
+  )
+);
 // middlewares
 app.use(cors());
 app.use(convert(bodyparser));
@@ -42,30 +48,23 @@ app.use(async (ctx, next) => {
   await smartRequire('router').allowedMethods();
 });
 
-const port = parseInt(config.port || '3000');
-const server = http.createServer(app.callback());
+/*
 
-server.listen(port);
-server.on('error', error => {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(port + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(port + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-});
-server.on('listening', () => {
-  console.log('Listening on port: %d', port);
-});
+    app.use(
+      convert(
+        koaStatic(path.join(__dirname, '../public'), {
+          pathPrefix: '',
+        })
+      )
+    );
 
-module.exports = server;
+    // views
+    app.use(
+      views(path.join(__dirname, '../views'), {
+        extension: 'ejs',
+      })
+    );
+
+*/
+
+module.exports = app;

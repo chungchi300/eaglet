@@ -1,13 +1,13 @@
 const request = require('supertest');
 const fs = require('fs');
 const path = require('path');
-const app = require('../src/app.js');
+const httpServer = require('../src/httpServer.js');
 //all using same config and sequelize sinced cached
 const sequelize = smartRequire('sequelize');
 const orm = smartRequire('orm');
 
 afterEach(() => {
-  app.close();
+  httpServer.close();
 });
 beforeEach(() => {
   return sequelize.sync({ force: true });
@@ -15,7 +15,7 @@ beforeEach(() => {
 //
 describe('index', () => {
   test('should respond success message', async () => {
-    const response = await request(app).get('/success');
+    const response = await request(httpServer).get('/success');
     expect(response.status).toEqual(200);
     expect(response.type).toEqual('application/json');
     expect(response.body).toEqual({ result: 'success', author: 'jeffchung' });
@@ -23,14 +23,14 @@ describe('index', () => {
 });
 describe('exception handling', () => {
   test('exception', async () => {
-    const response = await request(app).get('/testError');
+    const response = await request(httpServer).get('/testError');
     expect(response.status).toEqual(400);
     expect(response.type).toEqual('application/json');
     expect(response.body).toEqual({ _error: 'demo exception', expose: true });
   });
 });
 async function createOtp(username) {
-  await request(app)
+  await request(httpServer)
     .post('/membership/otp')
     .type('form')
     .send({ username: username });
@@ -39,7 +39,7 @@ async function createOtp(username) {
 async function register(username, password) {
   let otp = await createOtp(username);
   let previousUser = await orm.User.count();
-  await request(app)
+  await request(httpServer)
     .post('/membership/register')
     .type('form')
     .send({
@@ -56,7 +56,7 @@ describe('membership', () => {
   var testingPhone = '67348649';
   test('otp success email', async () => {
     let previousOtp = await orm.Otp.count();
-    const response = await request(app)
+    const response = await request(httpServer)
       .post('/membership/otp')
       .type('form')
       .send({ username: testingEmail });
@@ -66,7 +66,7 @@ describe('membership', () => {
   });
   test('otp success phone', async () => {
     let previousOtp = await orm.Otp.count();
-    const response = await request(app)
+    const response = await request(httpServer)
       .post('/membership/otp')
       .type('form')
       .send({ username: testingPhone });
@@ -79,7 +79,7 @@ describe('membership', () => {
     let username = testingEmail;
     let otp = await createOtp(username);
     let previousUser = await orm.User.count();
-    const response = await request(app)
+    const response = await request(httpServer)
       .post('/membership/register')
       .type('form')
       .send({
@@ -98,7 +98,7 @@ describe('membership', () => {
     let username = testingPhone;
     let otp = await createOtp(username);
     let previousUser = await orm.User.count();
-    const response = await request(app)
+    const response = await request(httpServer)
       .post('/membership/register')
       .type('form')
       .send({
@@ -117,7 +117,7 @@ describe('membership', () => {
     let email = testingEmail;
     let password = '123456';
     let user = await register(email, password);
-    const response = await request(app)
+    const response = await request(httpServer)
       .post('/membership/login')
       .type('form')
       .send({
@@ -132,7 +132,7 @@ describe('membership', () => {
     let password = '123456';
     let user = await register(email, password);
 
-    const response = await request(app)
+    const response = await request(httpServer)
       .get('/membership/me')
       .set('Authorization', 'bearer ' + user.token);
 
@@ -145,7 +145,7 @@ describe('membership', () => {
     let password = '123456';
     let user = await register(email, password);
 
-    const response = await request(app)
+    const response = await request(httpServer)
       .get('/membership/me')
       .set('Authorization', 'bearer ' + 'dummy' + user.token);
 
@@ -159,7 +159,7 @@ describe('membership', () => {
     let newPassword = 'abc123456';
     await register(email, password);
     let otp = await createOtp(email);
-    const response = await request(app)
+    const response = await request(httpServer)
       .post('/membership/resetPassword')
       .type('form')
       .send({
