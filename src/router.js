@@ -1,13 +1,13 @@
 const Router = require('koa-router');
-const indexCtrl = smartRequire('controllers/indexCtrl');
-const RestCtrl = smartRequire('controllers/RestCtrl');
-const testCtrl = smartRequire('controllers/testCtrl');
+const indexCtrl = smartRequire('controller/indexCtrl');
+const RestCtrl = smartRequire('controller/RestCtrl');
+const testCtrl = smartRequire('controller/testCtrl');
 
 const passport = smartRequire('auth');
-const successCtrl = smartRequire('controllers/successCtrl');
-const exceptionCtrl = smartRequire('controllers/exceptionCtrl');
+const successCtrl = smartRequire('controller/successCtrl');
+const exceptionCtrl = smartRequire('controller/exceptionCtrl');
 
-const MembershipCtrl = smartRequire('controllers/MembershipCtrl');
+const MembershipCtrl = smartRequire('controller/MembershipCtrl');
 const router = Router();
 
 let restCtrl = new RestCtrl();
