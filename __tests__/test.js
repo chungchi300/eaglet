@@ -26,7 +26,10 @@ describe('exception handling', () => {
     const response = await request(httpServer).get('/testError');
     expect(response.status).toEqual(400);
     expect(response.type).toEqual('application/json');
-    expect(response.body).toEqual({ _error: 'demo exception', expose: true });
+    expect(response.body).toEqual({
+      errors: { _error: 'demo exception' },
+      expose: true,
+    });
   });
 });
 async function createOtp(username) {

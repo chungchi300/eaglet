@@ -1,5 +1,5 @@
 const validator = require('validator');
-const Membership = smartRequire('service/Membership.js');
+const Membership = smartRequire('service/Membership');
 const mail = smartRequire('mail');
 const orm = smartRequire('orm');
 module.exports = class MembershipCtrl {

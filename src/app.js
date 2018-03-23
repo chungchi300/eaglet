@@ -50,13 +50,7 @@ app.use(async (ctx, next) => {
 
 /*
 
-    app.use(
-      convert(
-        koaStatic(path.join(__dirname, '../public'), {
-          pathPrefix: '',
-        })
-      )
-    );
+    Add your custom reducers
 
     // views
     app.use(

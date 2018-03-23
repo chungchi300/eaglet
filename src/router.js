@@ -3,7 +3,7 @@ const indexCtrl = smartRequire('controller/indexCtrl');
 const RestCtrl = smartRequire('controller/RestCtrl');
 const testCtrl = smartRequire('controller/testCtrl');
 
-const passport = smartRequire('auth');
+const passport = smartRequire('service/Passport/auth');
 const successCtrl = smartRequire('controller/successCtrl');
 const exceptionCtrl = smartRequire('controller/exceptionCtrl');
 

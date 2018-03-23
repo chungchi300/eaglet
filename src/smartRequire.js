@@ -11,11 +11,12 @@ global.smartRequire = function(name) {
       return smartRequire('lib/mail/sparkpost');
     }
   }
-  if (name == 'auth') {
-    return smartRequire('service/auth');
-  }
+
   if (name == 'ormModelPath') {
     return __dirname + '/service/orm/models';
+  }
+  if (name == 'ormRelationModelPath') {
+    return __dirname + '/service/orm/relation';
   }
   //find method to avoid orm ,sequelize,config load more then  once
   /*
@@ -24,10 +25,10 @@ global.smartRequire = function(name) {
   */
 
   if (name == 'orm') {
-    return smartRequire('service/orm/sequelize').orm;
+    return smartRequire('lib/orm/sequelize').orm;
   }
   if (name == 'sequelize') {
-    return smartRequire('service/orm/sequelize').sequelize;
+    return smartRequire('lib/orm/sequelize').sequelize;
   }
   return require(__dirname + '/' + name);
 };

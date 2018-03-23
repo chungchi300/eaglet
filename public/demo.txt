@@ -1,1 +1,1 @@
-asdasd
+Hello,that is demo static resource

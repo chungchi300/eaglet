@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const path = require('path');
 const fs = require('fs');
 const _ = require('lodash');
-const instanceMethods = smartRequire('lib/sequenlizeClassMethod.js');
+const instanceMethods = require('./sequenlizeClassMethod.js');
 const config = smartRequire('config');
 var sequelize = new Sequelize(
   config.database.connection.database,
@@ -33,4 +33,5 @@ module.exports = {
   sequelize: sequelize,
 };
 //
-require('./relation');
+
+require(smartRequire('ormRelationModelPath'));

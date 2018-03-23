@@ -8,19 +8,19 @@ module.exports = {
   database: {
     // port: 3000,
     connection: {
-      database: 'your mysql database name',
-      username: 'your mysql user name',
-      password: 'your mysql password',
+      database: 'fake',
+      username: 'root',
+      password: 'Mysql!276745',
     },
     extra: {
-      host: 'host name',
+      host: 'localhost',
       //default sqlite but suggest mysql in production
-      dialect: 'sqlite',
+      dialect: 'mysql',
       pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000,
+        max: 210,
+        min: 20,
+        acquire: 300000000,
+        idle: 0,
       },
       storage: global.srcRoot + '/../database.sqlite',
       define: {
