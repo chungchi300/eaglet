@@ -3,8 +3,8 @@ module.exports = async (ctx, next) => {
     //
     // //
 
-    ctx.body = { result: 'success', author: 'jeffchung' };
+    ctx.body = { result: 'success', author: 'jeffchung' }
   } catch (err) {
-    console.log('e', err);
+    console.log('e', err)
   }
-};
+}
