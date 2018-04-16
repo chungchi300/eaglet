@@ -1,4 +1,4 @@
-最简单直接的 Koa2 的脚手架 - **koa2-safe-start**
+最简单直接的 Koa2 的脚手架 - **eggwhite js**
 
 ## 哲学
 
