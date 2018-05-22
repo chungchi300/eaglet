@@ -11,6 +11,8 @@
     "sourceMap": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
@@ -22,7 +24,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false
   },
-  "include": ["src"],
+  "include": ["src", "bin"],
   "exclude": [
     "node_modules",
     "build",

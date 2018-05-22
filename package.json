@@ -6,7 +6,7 @@
     "start": "npx --no-install nodemon  ",
     "production":
       "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
-    "reset": "node bin/resetDatabase.js",
+    "reset": "ts-node bin/resetDatabase.ts",
     "test": "npx --no-install  jest --watchAll --runInBand --useStderr",
     "testProd":
       "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@koa/cors": "^2.2.1",
+    "@types/node": "^10.1.2",
     "co": "^4.6.0",
     "debug": "^2.2.0",
     "fs-extra": "^5.0.0",
@@ -39,10 +40,11 @@
     "passport-local": "^1.0.0",
     "passport-oauth2-jwt-bearer": "^0.2.0",
     "pm2": "^2.9.1",
+    "reflect-metadata": "^0.1.12",
     "require-dir": "^1.0.0",
-    "sequelize": "^4.13.8",
     "sparkpost": "^2.1.2",
     "sqlite3": "^3.1.13",
+    "typeorm": "^0.2.6",
     "uuid": "^3.1.0",
     "validator": "^9.2.0"
   },
