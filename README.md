@@ -1,3 +1,5 @@
+typescript,type orm,
+
 最简单直接的 Koa2 的脚手架 - **eaglet**
 
 ## 哲学
