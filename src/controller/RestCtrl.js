@@ -1,10 +1,10 @@
-const _ = require('lodash');
+const _ = require("lodash");
 //annonymous object!!(not class) with multiple
 function getResourceName(url) {
   const res = /^\/(\w+)/.exec(url);
   return _.upperFirst(res[1]);
 }
-const orm = smartRequire('orm');
+const orm = smartRequire("orm");
 module.exports = class RestResourceCtrl {
   async list(ctx, next) {
     try {
@@ -12,14 +12,14 @@ module.exports = class RestResourceCtrl {
       // //
 
       let resources = await orm[getResourceName(ctx.request.url)].findAll({
-        include: [{ all: true }],
+        include: [{ all: true }]
       });
-      ctx.set('X-Total-Count', resources.length);
-      ctx.set('Access-Control-Expose-Headers', 'X-Total-Count');
+      ctx.set("X-Total-Count", resources.length);
+      ctx.set("Access-Control-Expose-Headers", "X-Total-Count");
 
       ctx.body = resources;
     } catch (err) {
-      console.log('e', err);
+      console.log("e", err);
     }
   }
   async show(ctx, next) {
@@ -30,19 +30,19 @@ module.exports = class RestResourceCtrl {
       let resource = await orm[getResourceName(ctx.request.url)].findAll({
         include: [{ all: true }],
         where: {
-          id: ctx.params.id,
-        },
+          id: ctx.params.id
+        }
       });
 
       ctx.body = resource[0];
     } catch (err) {
-      console.log('e', err);
+      console.log("e", err);
     }
   }
   async create(ctx, next) {
     //
     // //
-    console.log('create', ctx.request.body);
+    console.log("create", ctx.request.body);
     let resource = await orm[getResourceName(ctx.request.url)].create(
       ctx.request.body
     );
@@ -56,9 +56,9 @@ module.exports = class RestResourceCtrl {
         ctx.request.body,
         { where: { id: ctx.params.id } }
       );
-      ctx.body = { operation: 'done' };
+      ctx.body = { operation: "done" };
     } catch (err) {
-      console.log('e', err);
+      console.log("e", err);
     }
   }
   async delete(ctx, next) {
@@ -66,8 +66,8 @@ module.exports = class RestResourceCtrl {
     // //
     let resource = await orm[getResourceName(ctx.request.url)].destroy({
       where: {
-        id: ctx.params.id,
-      },
+        id: ctx.params.id
+      }
     });
 
     ctx.body = ctx.params.id;

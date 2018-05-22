@@ -3,40 +3,40 @@
  * @Author Ling.
  * @Email i@zeroling.com
  */
-const srcRoot = smartRequire('srcRoot')
 module.exports = {
+  port: "5000",
   database: {
     // port: 3000,
     connection: {
-      database: 'yourDatabaseName',
-      username: 'yourUsername',
-      password: 'yourPassword'
+      database: "yourDatabaseName",
+      username: "yourUsername",
+      password: "yourPassword"
     },
     extra: {
-      host: 'localhost',
+      host: "localhost",
       // default sqlite but suggest mysql in production
-      dialect: 'sqlite',
+      dialect: "sqlite",
       pool: {
         max: 210,
         min: 20,
         acquire: 300000000,
         idle: 0
       },
-      storage: srcRoot + '/../database.sqlite',
+      storage: "/../database.sqlite",
       define: {
-        charset: 'utf8',
-        collate: 'utf8_general_ci',
+        charset: "utf8",
+        collate: "utf8_general_ci",
         timestamps: true
       }
     }
   },
   mail: {
     sparkpost: {
-      api: 'sparpost api',
+      api: "sparpost api",
       options: {
         sandbox: false
       }
     },
-    from: 'sender email name'
+    from: "sender email name"
   }
-}
+};

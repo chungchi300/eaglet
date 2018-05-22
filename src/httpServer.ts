@@ -1,11 +1,8 @@
 import app from "~/app";
 const http = require("http");
+import config from "~/config";
 
-// const smartRequire = require("./smartRequire");
-// console.log("smartRequire", smartRequire);
-// const config = smartRequire("config");
-
-const port = parseInt("3000");
+const port = parseInt(config.port || "3000");
 const server = http.createServer(app.callback());
 
 server.listen(port);
