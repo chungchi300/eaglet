@@ -4,12 +4,10 @@
   "author": "jeffchung",
   "scripts": {
     "start": "npx --no-install nodemon src/httpServer.js ",
-    "production":
-      "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
+    "production": "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
     "reset": "node bin/resetDatabase.js",
     "test": "npx --no-install  jest --watchAll --runInBand --useStderr",
-    "testProd":
-      "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
+    "testProd": "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
   },
   "jest": {
     "testEnvironment": "node"
