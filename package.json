@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "author": "jeffchung",
   "scripts": {
-    "start": "npx --no-install nodemon src/httpServer.js ",
-    "production": "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
+    "start": "npx --no-install nodemon  ",
+    "production":
+      "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
     "reset": "node bin/resetDatabase.js",
     "test": "npx --no-install  jest --watchAll --runInBand --useStderr",
-    "testProd": "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
+    "testProd":
+      "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
   },
   "jest": {
     "testEnvironment": "node"
@@ -53,7 +55,10 @@
     "jest": "^21.0.1",
     "nodemon": "^1.14.11",
     "should": "^8.3.0",
-    "supertest": "^1.2.0"
+    "supertest": "^1.2.0",
+    "ts-node": "^6.0.3",
+    "tsconfig-paths": "^3.3.2",
+    "typescript": "^2.8.3"
   },
   "license": "MIT"
 }

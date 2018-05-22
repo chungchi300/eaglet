@@ -1,6 +1,6 @@
 function getErrorKey(validationErrorItem) {
-  if (validationErrorItem.origin == 'FUNCTION') {
-    return '_error';
+  if (validationErrorItem.origin == "FUNCTION") {
+    return "_error";
   } else {
     return validationErrorItem.path;
   }
@@ -18,17 +18,13 @@ function parseSequenlizeValidationErrorItems(validationErrorItems) {
 
   return errorsObj;
 }
-function sequenlize(err) {
+export function sequenlize(err) {
   // if(errors)
 
   return Object.assign(err, {
-    errors: parseSequenlizeValidationErrorItems(err.errors),
+    errors: parseSequenlizeValidationErrorItems(err.errors)
   });
 }
-function basic(err) {
+export function basic(err) {
   return Object.assign(err, { errors: { _error: err.message } });
 }
-module.exports = {
-  sequenlize,
-  basic,
-};
