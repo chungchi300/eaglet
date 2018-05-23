@@ -5,7 +5,9 @@
   "dependencies": {
     "cra-lib": "git+ssh://git@10.6.64.19:10022/jeffchung/cra-lib.git",
     "jest": "^18.1.0",
+    "ra-data-simple-rest": "^2.0.0",
     "react": "^16.3.2",
+    "react-admin": "^2.0.0",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.6",
     "react-scripts-ts": "2.15.1",
