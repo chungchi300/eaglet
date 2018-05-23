@@ -7,7 +7,7 @@
     "production":
       "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
     "reset": "ts-node  -r tsconfig-paths/register  bin/resetDatabase.ts",
-    "test": "npx --no-install  jest --watchAll --runInBand --useStderr",
+    "test": "npx --no-install  jest --watchAll",
     "testProd":
       "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
   },
