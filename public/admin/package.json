@@ -1,0 +1,48 @@
+{
+  "name": "create-react-app-safe-start",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cra-lib": "git+ssh://git@10.6.64.19:10022/jeffchung/cra-lib.git",
+    "jest": "^18.1.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.6",
+    "react-scripts-ts": "2.15.1",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "save": "^2.3.2",
+    "styled-components": "^3.2.6"
+  },
+  "devDependencies": {
+    "@coldmind/tspath": "ssh://git@github.com:cdagli/tspath.git",
+    "@types/jest": "^22.2.3",
+    "@types/node": "^9.6.6",
+    "@types/react": "^16.3.12",
+    "@types/react-dom": "^16.0.5",
+    "react-docgen-typescript": "^1.3.2",
+    "react-styleguidist": "^7.0.10",
+    "shelljs": "^0.8.2",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.8.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/helpers/**.{js,jsx,ts,tsx}",
+      "**/src/reducers/**.{js,jsx,ts,tsx}",
+      "!**/src/reducers/index.ts",
+      "!**/node_modules/**"
+    ]
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "build:lib": "node ./make.js lib",
+    "test": "react-scripts-ts test --env=jsdom",
+    "test:coverage": "npm run test -- --coverage",
+    "doc": "npx typedoc --out doc src",
+    "styleguidist:server": "npx styleguidist server",
+    "styleguidist:build": "npx styleguidist build",
+    "eject": "react-scripts-ts eject"
+  }
+}
