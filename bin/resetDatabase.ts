@@ -1,40 +1,39 @@
-var path = require("path");
-import "reflect-metadata";
+var path = require('path')
+import 'reflect-metadata'
 
-import { Entity, Column, PrimaryColumn } from "typeorm";
-import { createConnection } from "typeorm";
+import { Entity, Column, PrimaryColumn } from 'typeorm'
+import { createConnection } from 'typeorm'
+import Feedback from '~/service/Analytic/orm/entity/Feedback'
 @Entity()
 export class Photo {
-  @PrimaryColumn() id: number;
-  @Column() name: string;
+  @PrimaryColumn() id: number
+  @Column() name: string
 }
 
-console.log("reset database");
-// require("../src/smartRequire");
-// const sequelize = smartRequire("sequelize");
-// const orm = smartRequire("orm");
+async function reloadDatabase() {
+  let connection = await createConnection({
+    type: 'mysql',
+    host: 'localhost',
+    port: 3307,
+    username: 'root',
+    password: 'Mysql!276745',
+    database: 'test',
+    entities: [Photo, Feedback],
+    synchronize: true,
+    logging: false
+  })
+  let feedback = new Feedback()
+  feedback.content = 'eaglet is very efficient'
+  await connection.manager.save(feedback)
+  return connection
+}
 
-// async function reloadDatabase() {
-//   console.log("reloading");
-//   await sequelize.sync({ force: true });
+reloadDatabase()
+  .then(res => {
+    console.log('reload done')
 
-//   await orm.Feedback.create({
-//     content: "safe start koa2 is easy h to use"
-//   });
-//   await orm.Feedback.create({
-//     content: "safe start koa2 help me finish my work eariler"
-//   });
-//   process.exit(0);
-// }
-// try {
-//   console.log("dirname", __dirname);
-//   // global.srcRoot = __dirname.replace('bin', 'src');
-//   // var config = require(path.join(__dirname, '../src/config/default.js'));
-
-//   //
-
-//   reloadDatabase().then(res => console.log("reload done"));
-// } catch (err) {
-//   throw new Error(err.message);
-//   process.exit(1);
-// }
+    process.exit(0)
+  })
+  .catch(err => {
+    throw err
+  })
