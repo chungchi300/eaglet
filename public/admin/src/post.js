@@ -1,5 +1,5 @@
 // in posts.js
-import React from 'react'
+import React from "react";
 import {
   List,
   Datagrid,
@@ -13,8 +13,8 @@ import {
   TextInput,
   LongTextInput,
   DateInput
-} from 'react-admin'
-
+} from "react-admin";
+import RichTextInput from "ra-input-rich-text";
 export const PostList = props => (
   <List {...props}>
     <Datagrid>
@@ -26,11 +26,11 @@ export const PostList = props => (
       <EditButton basePath="/posts" />
     </Datagrid>
   </List>
-)
+);
 
 const PostTitle = ({ record }) => {
-  return <span>Post {record ? `"${record.title}"` : ''}</span>
-}
+  return <span>Post {record ? `"${record.title}"` : ""}</span>;
+};
 
 export const PostEdit = props => (
   <Edit title={<PostTitle />} {...props}>
@@ -44,16 +44,31 @@ export const PostEdit = props => (
       <DisabledInput label="Nb views" source="views" />
     </SimpleForm>
   </Edit>
-)
+);
+
+var toolbarOptions = [
+  ["bold", "italic", "underline", "strike"], // toggled buttons
+
+  [{ header: 1 }, { header: 2 }], // custom button values
+  [{ list: "ordered" }, { list: "bullet" }],
+
+  [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+  [{ header: [1, 2, 3, 4, 5, 6, false] }],
+  ["link", "image"], // add's image support
+  [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+  [{ font: [] }],
+  [{ align: [] }],
+
+  ["clean"] // remove formatting button
+];
 
 export const PostCreate = props => (
   <Create title="Create a Post" {...props}>
     <SimpleForm>
       <TextInput source="title" />
-      <TextInput source="teaser" options={{ multiLine: true }} />
-      <LongTextInput source="body" />
-      <TextInput label="Publication date" source="published_at" />
-      <TextInput source="average_note" />
+      <div style={{ width: "1024px" }}>
+        <RichTextInput toolbar={toolbarOptions} source="body" />
+      </div>
     </SimpleForm>
   </Create>
-)
+);
