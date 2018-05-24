@@ -4,20 +4,28 @@
   "author": "jeffchung",
   "scripts": {
     "start": "npx --no-install nodemon  ",
-    "production":
-      "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
+    "production": "NODE_ENV=production npx --no-install pm2 start src/httpServer.js --name 'eaglet'",
     "reset": "ts-node  -r tsconfig-paths/register  bin/resetDatabase.ts",
     "test": "npx --no-install  jest --watchAll",
-    "testProd":
-      "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
+    "testProd": "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
   },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleDirectories": ["src", "node_modules"],
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleDirectories": [
+      "src",
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "engines": {
     "node": ">= 9"
@@ -48,7 +56,6 @@
     "reflect-metadata": "^0.1.12",
     "require-dir": "^1.0.0",
     "sparkpost": "^2.1.2",
-    "sqlite3": "^3.1.13",
     "typeorm": "^0.2.6",
     "uuid": "^3.1.0",
     "validator": "^9.2.0"

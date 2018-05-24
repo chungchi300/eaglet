@@ -9,12 +9,12 @@ afterEach(() => {})
 beforeEach(() => {
   // return sequelize.sync({ force: true })
 })
-// describe('membership', () => {
-//   it('basic', () => {
-//     mail({ emailData: 'asd' })
-//     expect(true).toBe(true)
-//   })
-// })
+describe('membership', () => {
+  it('basic', () => {
+    mail({ emailData: 'asd' })
+    expect(true).toBe(true)
+  })
+})
 // async function pRegister(username, password) {
 //   let otp = await Membership.createOtp(username)
 //   // let previousUser = await orm.User.count();
