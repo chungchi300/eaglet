@@ -4,7 +4,8 @@ const path = require('path')
 import httpServer from '../src/httpServer'
 
 afterEach(() => {
-  httpServer.close()
+  console.log('close http serve', httpServer)
+  // httpServer.close()
 })
 describe('exception handling', () => {
   test('exception', async () => {

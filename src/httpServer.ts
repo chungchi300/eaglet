@@ -4,7 +4,7 @@ import config from './config'
 
 const port = parseInt(config.port || '3000')
 const server = http.createServer(app.callback())
-console.log('config', config)
+// console.log('config', config)
 server.listen(port)
 server.on('error', error => {
   if (error.syscall !== 'listen') {
