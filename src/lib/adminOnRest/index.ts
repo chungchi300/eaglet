@@ -15,5 +15,17 @@ export async function list(resourceName: string) {
 }
 export async function find(resourceName: string, id: number) {
   let repository = (await DB()).manager.getRepository(resourceName)
-  return (await repository.find({ id: id }))[0]
+  return await repository.findOneOrFail({ id: id })
+}
+export async function create(resourceName: string, data) {
+  let repository = (await DB()).manager.getRepository(resourceName)
+  console.log('creating')
+  return await repository.save(data)
+}
+export async function update(resourceName: string, id: number, data) {
+  let repository = (await DB()).manager.getRepository(resourceName)
+
+  console.log('creating')
+  await repository.update({ id: id }, data)
+  return await find(resourceName, id)
 }

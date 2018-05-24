@@ -1,7 +1,14 @@
 const _ = require('lodash')
 //annonymous object!!(not class) with multiple
 
-import { list, getResourceName } from 'lib/adminOnRest'
+import {
+  list,
+  getResourceName,
+  find,
+  create,
+  update,
+  remove
+} from 'lib/adminOnRest'
 export default class RestResourceCtrl {
   async list(ctx, next) {
     try {
@@ -22,9 +29,7 @@ export default class RestResourceCtrl {
       //
       // //
 
-      let resource = await find(getResourceName(ctx.request.url))
-
-      ctx.body = resource[0]
+      ctx.body = await find(getResourceName(ctx.request.url), ctx.params.id)
     } catch (err) {
       console.log('e', err)
     }
@@ -33,7 +38,8 @@ export default class RestResourceCtrl {
     //
     // //
     console.log('create', ctx.request.body)
-    let resource = await orm[getResourceName(ctx.request.url)].create(
+    let resource = await create(
+      getResourceName(ctx.request.url),
       ctx.request.body
     )
     ctx.body = resource.id
@@ -42,24 +48,21 @@ export default class RestResourceCtrl {
     try {
       //
       // //
-      let resource = await orm[getResourceName(ctx.request.url)].update(
-        ctx.request.body,
-        { where: { id: ctx.params.id } }
+
+      ctx.body = await update(
+        getResourceName(ctx.request.url),
+        ctx.params.id,
+        ctx.request.body
       )
-      ctx.body = { operation: 'done' }
     } catch (err) {
       console.log('e', err)
     }
   }
-  async delete(ctx, next) {
+  async remove(ctx, next) {
     //
     // //
-    let resource = await orm[getResourceName(ctx.request.url)].destroy({
-      where: {
-        id: ctx.params.id
-      }
-    })
 
-    ctx.body = ctx.params.id
+    await remove(getResourceName(ctx.request.url), ctx.params.id)
+    ctx.body = 'deleted'
   }
 }

@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { getResourceName, list, find } from 'lib/adminOnRest'
+import { getResourceName, list, find, create, update } from 'lib/adminOnRest'
 import { reloadDatabase } from 'lib/orm/util'
 import User from 'service/Membership/orm/entity/User'
 
@@ -55,15 +55,56 @@ describe('get Resource name', () => {
     ])
   })
   it('find', async () => {
-    expect(await find('User', 1)).toEqual({
-      id: 1,
-      token: '123323',
-      phone: 'asdsad',
+    expect(await find('User', 2)).toEqual({
+      id: 2,
+      token: '123',
+      phone: '67348649',
       phoneVerified: false,
       email: null,
       emailVerified: false,
-      password: 'asdasd',
-      name: 'demo',
+      password: 'qweqwe',
+      name: 'jeasdasdff',
+      banned: false
+    })
+  })
+  it('create', async () => {
+    expect(
+      await create('User', {
+        token: '123',
+        phone: '673486429',
+        phoneVerified: false,
+        email: null,
+        emailVerified: false,
+        password: 'qweqwe',
+        name: 'this is 3 jeff',
+        banned: false
+      })
+    ).toEqual({
+      id: 3,
+      token: '123',
+      phone: '673486429',
+      phoneVerified: false,
+      email: null,
+      emailVerified: false,
+      password: 'qweqwe',
+      name: 'this is 3 jeff',
+      banned: false
+    })
+  })
+  it('update', async () => {
+    expect(
+      await update('User', 2, {
+        name: 'this is 3 jeff - modified'
+      })
+    ).toEqual({
+      id: 2,
+      token: '123',
+      phone: '67348649',
+      phoneVerified: false,
+      email: null,
+      emailVerified: false,
+      password: 'qweqwe',
+      name: 'this is 3 jeff - modified',
       banned: false
     })
   })
