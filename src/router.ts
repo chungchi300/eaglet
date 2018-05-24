@@ -1,17 +1,17 @@
-const Router = require("koa-router");
-import indexCtrl from "controller/indexCtrl";
+const Router = require('koa-router')
+import indexCtrl from 'controller/indexCtrl'
 // import RestCtrl from "controller/RestCtrl";
 // const RestCtrl = smartRequire("controller/RestCtrl");
 
 // const passport = smartRequire('service/Passport/auth')
-// const successCtrl = smartRequire('controller/successCtrl')
-// const exceptionCtrl = smartRequire('controller/exceptionCtrl')
+import successCtrl from 'controller/successCtrl'
+import exceptionCtrl from 'controller/exceptionCtrl'
 
 // const MembershipCtrl = smartRequire('controller/MembershipCtrl')
-const router = Router();
+const router = Router()
 
 // let restCtrl = new RestCtrl()
-router.get("/", indexCtrl);
+router.get('/', indexCtrl)
 
 // function resource (router, resourceName, ctrl) {
 //   router
@@ -22,13 +22,13 @@ router.get("/", indexCtrl);
 //     .delete(`/${resourceName}/:id`, ctrl.delete)
 // }
 
-// router.get('/success', successCtrl)
+router.get('/success', successCtrl)
 // let membershipCtrl = new MembershipCtrl()
 // router.post('/membership/register', membershipCtrl.register)
 // router.post('/membership/login', membershipCtrl.login)
 // router.post('/membership/resetPassword', membershipCtrl.resetPassword)
 // router.post('/membership/otp', membershipCtrl.otp)
-// router.get('/testError', exceptionCtrl)
+router.get('/testError', exceptionCtrl)
 
 // router.get(
 //   '/membership/me',
@@ -41,4 +41,4 @@ router.get("/", indexCtrl);
 // // need auth route middle
 // resource(router, 'feedback', restCtrl)
 
-module.exports = router;
+module.exports = router

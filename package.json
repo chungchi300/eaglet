@@ -12,7 +12,12 @@
       "NODE_ENV=production  npx --no-install  jest --watchAll --runInBand --useStderr"
   },
   "jest": {
-    "testEnvironment": "node"
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleDirectories": ["src", "node_modules"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "engines": {
     "node": ">= 9"
@@ -49,6 +54,7 @@
     "validator": "^9.2.0"
   },
   "devDependencies": {
+    "@types/jest": "^22.2.3",
     "chokidar": "^1.5.1",
     "eslint": "^2.11.1",
     "eslint-config-standard": "^5.2.0",
@@ -58,6 +64,7 @@
     "nodemon": "^1.14.11",
     "should": "^8.3.0",
     "supertest": "^1.2.0",
+    "ts-jest": "^22.4.6",
     "ts-node": "^6.0.3",
     "tsconfig-paths": "^3.3.2",
     "typescript": "^2.8.3"

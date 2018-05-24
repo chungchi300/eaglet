@@ -1,7 +1,7 @@
 const request = require('supertest')
 const fs = require('fs')
 const path = require('path')
-const httpServer = require('../src/httpServer.js')
+import httpServer from '../src/httpServer'
 
 afterEach(() => {
   httpServer.close()

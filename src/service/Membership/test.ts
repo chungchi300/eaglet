@@ -11,7 +11,7 @@ beforeEach(() => {
 })
 describe('membership', () => {
   it('basic', () => {
-    mail('emailData')
+    mail({ emailData: 'asd' })
     expect(true).toBe(true)
   })
 })

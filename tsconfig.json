@@ -4,9 +4,7 @@
     "module": "commonjs",
     "target": "es5",
     "baseUrl": "src",
-    "paths": {
-      "~/*": ["./*"]
-    },
+
     "lib": ["es6", "dom"],
     "sourceMap": true,
     "allowJs": true,

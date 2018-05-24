@@ -3,9 +3,9 @@ import 'reflect-metadata'
 
 import { Entity, Column, PrimaryColumn } from 'typeorm'
 import { createConnection } from 'typeorm'
-import Feedback from '~/service/Analytic/orm/entity/Feedback'
-import Otp from '~/service/Membership/orm/entity/Otp'
-import User from '~/service/Membership/orm/entity/User'
+import Feedback from 'service/Analytic/orm/entity/Feedback'
+import Otp from 'service/Membership/orm/entity/Otp'
+import User from 'service/Membership/orm/entity/User'
 async function reloadDatabase() {
   let connection = await createConnection({
     type: 'mysql',

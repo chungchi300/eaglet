@@ -1,4 +1,4 @@
-module.exports = async (ctx, next) => {
+export default function async (ctx, next) {
   try {
     //
     // //
