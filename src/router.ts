@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 import indexCtrl from 'controller/indexCtrl'
 // import RestCtrl from "controller/RestCtrl";
-// const RestCtrl = smartRequire("controller/RestCtrl");
+import RestCtrl from 'controller/RestCtrl'
 
 // const passport = smartRequire('service/Passport/auth')
 import successCtrl from 'controller/successCtrl'

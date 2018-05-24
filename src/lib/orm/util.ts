@@ -1,8 +1,8 @@
 var path = require('path')
 import 'reflect-metadata'
 
-import { Entity, Column, PrimaryColumn } from 'typeorm'
-import { createConnection } from 'typeorm'
+import { Entity, Column, PrimaryColumn, Connection } from 'typeorm'
+import { createConnection, getConnection } from 'typeorm'
 
 import Feedback from 'service/Analytic/orm/entity/Feedback'
 import Otp from 'service/Membership/orm/entity/Otp'
@@ -13,7 +13,23 @@ import Menu from 'service/Cms/orm/entity/Menu'
 import Post from 'service/Cms/orm/entity/Post'
 
 export async function reloadDatabase() {
-  let connection = await createConnection({
+  console.log('reload database start')
+  const connection = await DB()
+  await connection.dropDatabase()
+  await connection.synchronize()
+  console.log('reload database end')
+
+  return connection
+}
+export async function DB() {
+  try {
+    let connection = getConnection()
+
+    return connection
+  } catch (connectionError) {
+    console.log('connection not found create ')
+  }
+  return await createConnection({
     type: 'mysql',
     host: 'localhost',
     port: 3307,
@@ -24,8 +40,4 @@ export async function reloadDatabase() {
     synchronize: false,
     logging: false
   })
-  await connection.dropDatabase()
-  await connection.synchronize()
-
-  return connection
 }

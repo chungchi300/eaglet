@@ -4,7 +4,9 @@ import {
   PrimaryColumn,
   Generated,
   ManyToOne,
-  ManyToMany
+  ManyToMany,
+  CreateDateColumn,
+  UpdateDateColumn
 } from 'typeorm'
 import { createConnection } from 'typeorm'
 import User from 'service/Membership/orm/entity/User'
@@ -16,6 +18,12 @@ export default class Post {
   @Generated()
   id: number
   @Column('text') content: string
+
+  @CreateDateColumn({ type: 'timestamp' })
+  public createdAt: Date
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  public updatedAt: Date
   @ManyToMany(type => Tag, tag => tag.posts, {
     onDelete: 'CASCADE',
     onUpdate: 'CASCADE'
